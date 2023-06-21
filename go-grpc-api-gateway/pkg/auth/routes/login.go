@@ -5,11 +5,11 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/raihantf/go-grpc-api-gateway/pkg/auth/pb"
-	request_model "github.com/raihantf/go-grpc-api-gateway/pkg/models/request"
+	auth_request "github.com/raihantf/go-grpc-api-gateway/pkg/models/request"
 )
 
 func Login(ctx *fiber.Ctx, c pb.AuthServiceClient) error {
-	body := request_model.LoginRequest{}
+	body := auth_request.LoginRequest{}
 
 	if err := ctx.BodyParser(body); err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, "error parsing data")
